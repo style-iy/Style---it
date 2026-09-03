@@ -5,21 +5,30 @@
 
 
 // ----------------------------------------
-// 1. START STYLE ANALYSIS
+// STYLE PROFILE DATA
+// ----------------------------------------
+
+let styleProfile = {
+    gender: "",
+    height: "",
+    style: "",
+    budget: "",
+    facePhoto: null,
+    bodyPhoto: null
+};
+
+
+// ----------------------------------------
+// HOMEPAGE — START STYLE ANALYSIS
 // ----------------------------------------
 
 function startStyleAnalysis() {
-
-    alert(
-        "Style Analysis is coming next!\n\n" +
-        "You will soon be able to create your personal style profile."
-    );
-
+    window.location.href = "analysis.html";
 }
 
 
 // ----------------------------------------
-// 2. EXPLORE FASHION BUTTON
+// HOMEPAGE — EXPLORE FASHION
 // ----------------------------------------
 
 const exploreButton = document.querySelector(".secondary-button");
@@ -28,9 +37,13 @@ if (exploreButton) {
 
     exploreButton.addEventListener("click", function () {
 
-        document.querySelector(".categories").scrollIntoView({
-            behavior: "smooth"
-        });
+        const categories = document.querySelector(".categories");
+
+        if (categories) {
+            categories.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
 
     });
 
@@ -38,7 +51,7 @@ if (exploreButton) {
 
 
 // ----------------------------------------
-// 3. CATEGORY CARDS
+// CATEGORY CARDS
 // ----------------------------------------
 
 const categoryCards = document.querySelectorAll(".category-card");
@@ -62,82 +75,109 @@ categoryCards.forEach(function (card) {
 
 
 // ----------------------------------------
-// 4. WELCOME MESSAGE
+// SELECT STYLE
 // ----------------------------------------
 
-console.log("STYLE-IT website loaded successfully.");
+function selectStyle(button, styleName) {
+
+    // Remove selected state from all style buttons
+    const buttons =
+        document.querySelectorAll(".style-options button");
+
+    buttons.forEach(function (btn) {
+        btn.classList.remove("selected");
+    });
 
 
-// ----------------------------------------
-// 5. FUTURE STYLE PROFILE
-// ----------------------------------------
-
-const styleProfile = {
-
-    height: null,
-
-    faceShape: null,
-
-    bodyShape: null,
-
-    stylePreference: null,
-
-    budget: null,
-
-    favoriteColors: [],
-
-    recommendedHairstyles: [],
-
-    recommendedClothing: [],
-
-    recommendedFootwear: [],
-
-    recommendedAccessories: []
-
-};
+    // Select clicked button
+    button.classList.add("selected");
 
 
-// ----------------------------------------
-// 6. FUTURE OUTFIT SYSTEM
-// ----------------------------------------
-
-function createOutfit() {
-
-    console.log("Outfit recommendation system will be added here.");
+    // Save selected style
+    styleProfile.style = styleName;
 
 }
 
 
 // ----------------------------------------
-// 7. FUTURE PRODUCT SEARCH
+// ANALYZE STYLE
 // ----------------------------------------
 
-function searchProducts(searchTerm) {
+function analyzeStyle() {
 
-    console.log(
-        "Searching products for:",
-        searchTerm
+    const gender =
+        document.getElementById("gender").value;
+
+    const height =
+        document.getElementById("height").value;
+
+    const budget =
+        document.getElementById("budget").value;
+
+    const facePhoto =
+        document.getElementById("facePhoto").files[0];
+
+    const bodyPhoto =
+        document.getElementById("bodyPhoto").files[0];
+
+
+    // Check basic information
+
+    if (!gender) {
+        alert("Please select your fashion preference.");
+        return;
+    }
+
+
+    if (!height) {
+        alert("Please enter your height.");
+        return;
+    }
+
+
+    if (!styleProfile.style) {
+        alert("Please select at least one style.");
+        return;
+    }
+
+
+    if (!budget) {
+        alert("Please select your budget.");
+        return;
+    }
+
+
+    // Save information
+
+    styleProfile.gender = gender;
+    styleProfile.height = height;
+    styleProfile.budget = budget;
+    styleProfile.facePhoto = facePhoto
+        ? facePhoto.name
+        : null;
+
+    styleProfile.bodyPhoto = bodyPhoto
+        ? bodyPhoto.name
+        : null;
+
+
+    // Save profile in browser
+
+    localStorage.setItem(
+        "styleProfile",
+        JSON.stringify(styleProfile)
     );
 
-}
 
+    // Move to results page
 
-// ----------------------------------------
-// 8. FUTURE COMPLETE MY LOOK
-// ----------------------------------------
-
-function completeMyLook(product) {
-
-    console.log(
-        "Creating a complete outfit around:",
-        product
-    );
+    window.location.href = "results.html";
 
 }
 
 
 // ----------------------------------------
-// STYLE-IT READY
+// CONSOLE MESSAGE
 // ----------------------------------------
 
-console.log("Style-it recommendation system initialized.");
+console.log("Style-it is running.");
