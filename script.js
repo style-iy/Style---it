@@ -3,11 +3,6 @@
 // Main JavaScript
 // ========================================
 
-
-// ----------------------------------------
-// STYLE PROFILE DATA
-// ----------------------------------------
-
 let styleProfile = {
     gender: "",
     height: "",
@@ -19,7 +14,7 @@ let styleProfile = {
 
 
 // ----------------------------------------
-// HOMEPAGE — START STYLE ANALYSIS
+// HOMEPAGE
 // ----------------------------------------
 
 function startStyleAnalysis() {
@@ -28,7 +23,7 @@ function startStyleAnalysis() {
 
 
 // ----------------------------------------
-// HOMEPAGE — EXPLORE FASHION
+// EXPLORE FASHION
 // ----------------------------------------
 
 const exploreButton = document.querySelector(".secondary-button");
@@ -66,7 +61,7 @@ categoryCards.forEach(function (card) {
         alert(
             "You selected: " +
             categoryName +
-            "\n\nThe shopping section will be connected here."
+            "\n\nShopping will be connected here."
         );
 
     });
@@ -80,7 +75,6 @@ categoryCards.forEach(function (card) {
 
 function selectStyle(button, styleName) {
 
-    // Remove selected state from all style buttons
     const buttons =
         document.querySelectorAll(".style-options button");
 
@@ -88,14 +82,9 @@ function selectStyle(button, styleName) {
         btn.classList.remove("selected");
     });
 
-
-    // Select clicked button
     button.classList.add("selected");
 
-
-    // Save selected style
     styleProfile.style = styleName;
-
 }
 
 
@@ -121,25 +110,20 @@ function analyzeStyle() {
         document.getElementById("bodyPhoto").files[0];
 
 
-    // Check basic information
-
     if (!gender) {
         alert("Please select your fashion preference.");
         return;
     }
-
 
     if (!height) {
         alert("Please enter your height.");
         return;
     }
 
-
     if (!styleProfile.style) {
-        alert("Please select at least one style.");
+        alert("Please select a style.");
         return;
     }
-
 
     if (!budget) {
         alert("Please select your budget.");
@@ -147,37 +131,134 @@ function analyzeStyle() {
     }
 
 
-    // Save information
-
     styleProfile.gender = gender;
     styleProfile.height = height;
     styleProfile.budget = budget;
-    styleProfile.facePhoto = facePhoto
-        ? facePhoto.name
-        : null;
 
-    styleProfile.bodyPhoto = bodyPhoto
-        ? bodyPhoto.name
-        : null;
+    styleProfile.facePhoto =
+        facePhoto ? facePhoto.name : null;
+
+    styleProfile.bodyPhoto =
+        bodyPhoto ? bodyPhoto.name : null;
 
 
-    // Save profile in browser
-
+    // Save information in browser
     localStorage.setItem(
         "styleProfile",
         JSON.stringify(styleProfile)
     );
 
 
-    // Move to results page
-
+    // Go to results
     window.location.href = "results.html";
+}
+
+
+// ----------------------------------------
+// RESULTS PAGE
+// ----------------------------------------
+
+function loadResults() {
+
+    const savedProfile =
+        localStorage.getItem("styleProfile");
+
+    if (!savedProfile) {
+        return;
+    }
+
+
+    const profile =
+        JSON.parse(savedProfile);
+
+
+    const genderElement =
+        document.getElementById("resultGender");
+
+    const heightElement =
+        document.getElementById("resultHeight");
+
+    const styleElement =
+        document.getElementById("resultStyle");
+
+    const budgetElement =
+        document.getElementById("resultBudget");
+
+
+    if (genderElement) {
+
+        if (profile.gender === "men") {
+            genderElement.textContent = "Men's fashion";
+        }
+
+        else if (profile.gender === "women") {
+            genderElement.textContent = "Women's fashion";
+        }
+
+        else {
+            genderElement.textContent = "Unisex";
+        }
+    }
+
+
+    if (heightElement) {
+        heightElement.textContent =
+            profile.height + " cm";
+    }
+
+
+    if (styleElement) {
+        styleElement.textContent =
+            profile.style;
+    }
+
+
+    if (budgetElement) {
+
+        const budgetNames = {
+
+            "under500": "Under ₹500",
+
+            "500-1000": "₹500 – ₹1,000",
+
+            "1000-2000": "₹1,000 – ₹2,000",
+
+            "2000-5000": "₹2,000 – ₹5,000",
+
+            "5000+": "₹5,000+"
+
+        };
+
+        budgetElement.textContent =
+            budgetNames[profile.budget] ||
+            profile.budget;
+    }
 
 }
 
 
 // ----------------------------------------
-// CONSOLE MESSAGE
+// BUILD OUTFIT
 // ----------------------------------------
 
-console.log("Style-it is running.");
+function buildOutfit() {
+
+    alert(
+        "Complete My Look is the next feature we will build."
+    );
+
+}
+
+
+// ----------------------------------------
+// RUN RESULTS FUNCTION
+// ----------------------------------------
+
+loadResults();
+
+
+// ----------------------------------------
+// WEBSITE LOADED
+// ----------------------------------------
+
+console.log("Style-it is running successfully.");
