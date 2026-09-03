@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Style-it | Style Analysis</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">STYLE-IT</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">Shop</a>
+            <a href="analysis.html">Style AI</a>
+            <a href="#">Profile</a>
+        </nav>
+    </header>
+
+
+    <main class="analysis-page">
+
+        <section class="analysis-header">
+
+            <p class="tagline">PERSONAL STYLE ANALYSIS</p>
+
+            <h1>
+                Let's find your
+                <span>best style.</span>
+            </h1>
+
+            <p>
+                Tell us a little about yourself so Style-it
+                can create personalized fashion recommendations.
+            </p>
+
+        </section>
+
+
+        <section class="analysis-form">
+
+            <div class="form-section">
+
+                <h2>1. Basic Information</h2>
+
+                <label for="gender">Fashion preference</label>
+
+                <select id="gender">
+                    <option value="">Select</option>
+                    <option value="men">Men's fashion</option>
+                    <option value="women">Women's fashion</option>
+                    <option value="unisex">Unisex</option>
+                </select>
+
+
+                <label for="height">Height</label>
+
+                <input
+                    type="number"
+                    id="height"
+                    placeholder="Height in cm"
+                >
+
+            </div>
+
+
+            <div class="form-section">
+
+                <h2>2. Your Style</h2>
+
+                <p class="form-description">
+                    Choose the styles you like.
+                </p>
+
+                <div class="style-options">
+
+                    <button type="button"
+                            onclick="selectStyle(this, 'Streetwear')">
+                        Streetwear
+                    </button>
+
+                    <button type="button"
+                            onclick="selectStyle(this, 'Casual')">
+                        Casual
+                    </button>
+
+                    <button type="button"
+                            onclick="selectStyle(this, 'Formal')">
+                        Formal
+                    </button>
+
+                    <button type="button"
+                            onclick="selectStyle(this, 'Minimal')">
+                        Minimal
+                    </button>
+
+                    <button type="button"
+                            onclick="selectStyle(this, 'Vintage')">
+                        Vintage
+                    </button>
+
+                    <button type="button"
+                            onclick="selectStyle(this, 'Sporty')">
+                        Sporty
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-section">
+
+                <h2>3. Fashion Budget</h2>
+
+                <select id="budget">
+
+                    <option value="">
+                        Select your budget
+                    </option>
+
+                    <option value="under500">
+                        Under ₹500
+                    </option>
+
+                    <option value="500-1000">
+                        ₹500 – ₹1,000
+                    </option>
+
+                    <option value="1000-2000">
+                        ₹1,000 – ₹2,000
+                    </option>
+
+                    <option value="2000-5000">
+                        ₹2,000 – ₹5,000
+                    </option>
+
+                    <option value="5000+">
+                        ₹5,000+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-section">
+
+                <h2>4. Photos</h2>
+
+                <p class="form-description">
+                    These will eventually be used for personalized
+                    style analysis.
+                </p>
+
+
+                <label class="upload-box">
+
+                    <span>📸</span>
+
+                    <strong>Face Photo</strong>
+
+                    <small>
+                        Upload a clear front-facing photo
+                    </small>
+
+                    <input
+                        type="file"
+                        id="facePhoto"
+                        accept="image/*"
+                    >
+
+                </label>
+
+
+                <label class="upload-box">
+
+                    <span>🧍</span>
+
+                    <strong>Full Body Photo</strong>
+
+                    <small>
+                        Upload a clear full-body photo
+                    </small>
+
+                    <input
+                        type="file"
+                        id="bodyPhoto"
+                        accept="image/*"
+                    >
+
+                </label>
+
+            </div>
+
+
+            <button
+                class="analyze-button"
+                onclick="analyzeStyle()">
+
+                ✨ Analyze My Style
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 Style-it</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
