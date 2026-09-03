@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b0f;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #22222a;
+    background: #0b0b0f;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #c8c8d0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    padding: 80px 7%;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 75% 30%, #292942 0%, transparent 35%),
+        radial-gradient(circle at 20% 80%, #18182a 0%, transparent 35%),
+        #0b0b0f;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.tagline {
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: #aaaabb;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 82px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #a8a8ff;
+}
+
+.hero-text {
+    max-width: 600px;
+    color: #aaaab5;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #0b0b0f;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.secondary-button {
+    background: #1b1b23;
+    color: #ffffff;
+    border: 1px solid #33333d;
+}
+
+
+/* CATEGORIES */
+
+.categories {
+    padding: 80px 7%;
+    background: #101014;
+}
+
+.categories h2,
+.feature-section h2 {
+    font-size: 34px;
+    margin-bottom: 35px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.category-card {
+    background: #17171d;
+    border: 1px solid #292931;
+    border-radius: 16px;
+    padding: 30px 20px;
+    min-height: 180px;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: #555565;
+}
+
+.category-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.category-card p {
+    color: #8e8e99;
+    font-size: 13px;
+}
+
+
+/* FEATURES */
+
+.feature-section {
+    padding: 80px 7%;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    padding: 30px;
+    border: 1px solid #292931;
+    background: #111116;
+    border-radius: 16px;
+}
+
+.feature span {
+    font-size: 35px;
+}
+
+.feature h3 {
+    margin: 15px 0 8px;
+    font-size: 20px;
+}
+
+.feature p {
+    color: #92929d;
+    font-size: 14px;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 30px 7%;
+    border-top: 1px solid #22222a;
+    color: #777780;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .categories,
+    .feature-section {
+        padding: 60px 5%;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 450px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .category-card {
+        padding: 20px 15px;
+        min-height: 150px;
+    }
+
+    .category-icon {
+        font-size: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+    }
+  }
