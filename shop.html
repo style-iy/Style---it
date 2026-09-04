@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Style-it | Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">STYLE-IT</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="analysis.html">Style AI</a>
+        <a href="#">Profile</a>
+    </nav>
+
+</header>
+
+
+<main class="shop-page">
+
+    <!-- SHOP HEADER -->
+
+    <section class="shop-header">
+
+        <p class="tagline">STYLE • DISCOVER • SHOP</p>
+
+        <h1>
+            Find your
+            <span>next look.</span>
+        </h1>
+
+        <p>
+            Discover clothing, footwear and accessories
+            selected for your personal style.
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="shop-search">
+
+        <input
+            type="search"
+            id="productSearch"
+            placeholder="🔎 Search clothes, shoes, watches..."
+        >
+
+    </section>
+
+
+    <!-- FILTERS -->
+
+    <section class="shop-filters">
+
+        <button class="filter active"
+                onclick="filterProducts('all', this)">
+            All
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('clothing', this)">
+            👕 Clothing
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('pants', this)">
+            👖 Pants
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('footwear', this)">
+            👟 Footwear
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('accessories', this)">
+            🕶️ Accessories
+        </button>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="product-section">
+
+        <div class="product-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card"
+                 data-category="clothing"
+                 data-name="black oversized t shirt">
+
+                <div class="product-image">
+                    👕
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        CLOTHING
+                    </span>
+
+                    <h2>Black Oversized T-Shirt</h2>
+
+                    <p class="product-description">
+                        Relaxed fit • Streetwear
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹499</strong>
+
+                        <button onclick="viewProduct('Black Oversized T-Shirt')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card"
+                 data-category="pants"
+                 data-name="black bootcut jeans">
+
+                <div class="product-image">
+                    👖
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        PANTS
+                    </span>
+
+                    <h2>Black Bootcut Jeans</h2>
+
+                    <p class="product-description">
+                        Bootcut • Streetwear
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹899</strong>
+
+                        <button onclick="viewProduct('Black Bootcut Jeans')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card"
+                 data-category="footwear"
+                 data-name="white sneakers">
+
+                <div class="product-image">
+                    👟
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        FOOTWEAR
+                    </span>
+
+                    <h2>Clean White Sneakers</h2>
+
+                    <p class="product-description">
+                        Casual • Minimal
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹1,299</strong>
+
+                        <button onclick="viewProduct('Clean White Sneakers')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card"
+                 data-category="accessories"
+                 data-name="black watch">
+
+                <div class="product-image">
+                    ⌚
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        ACCESSORIES
+                    </span>
+
+                    <h2>Minimal Black Watch</h2>
+
+                    <p class="product-description">
+                        Minimal • Everyday
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹699</strong>
+
+                        <button onclick="viewProduct('Minimal Black Watch')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+
+            <div class="product-card"
+                 data-category="accessories"
+                 data-name="square sunglasses">
+
+                <div class="product-image">
+                    🕶️
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        ACCESSORIES
+                    </span>
+
+                    <h2>Square Black Sunglasses</h2>
+
+                    <p class="product-description">
+                        Bold • Streetwear
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹399</strong>
+
+                        <button onclick="viewProduct('Square Black Sunglasses')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+
+            <div class="product-card"
+                 data-category="clothing"
+                 data-name="white relaxed shirt">
+
+                <div class="product-image">
+                    👔
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        CLOTHING
+                    </span>
+
+                    <h2>White Relaxed Shirt</h2>
+
+                    <p class="product-description">
+                        Casual • Clean
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>₹799</strong>
+
+                        <button onclick="viewProduct('White Relaxed Shirt')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPLETE MY LOOK -->
+
+    <section class="complete-look">
+
+        <p class="tagline">STYLE-IT AI</p>
+
+        <h2>
+            Have one item?
+            <span>Complete the look.</span>
+        </h2>
+
+        <p>
+            Tell Style-it what you're wearing and we'll
+            build the rest of the outfit around it.
+        </p>
+
+        <button onclick="completeMyLook()">
+            ✨ Complete My Look
+        </button>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <p>© 2026 Style-it</p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+  </html>
