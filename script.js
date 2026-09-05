@@ -434,7 +434,7 @@ if (productSearch) {
 function viewProduct(productName) {
     const productLinks = {
         "Black Oversized T-Shirt": "https://www2.hm.com/en_in/productpage.1294399002.html",
-        "Black Bootcut Jeans": "https://dieselindia.com/product/black-bootcut-jeans-1969-d-ebbey-15223718"
+        "Black Bootcut Jeans": "https://www.myntra.com/jeans/highlander/highlander-men-bootcut-jeans/30473895/buy"
     };
 
     if (productLinks[productName]) {
