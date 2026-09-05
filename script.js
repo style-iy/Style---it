@@ -432,12 +432,13 @@ if (productSearch) {
 // ========================================
 
 function viewProduct(productName) {
+    const productLinks = {
+        "Black Oversized T-Shirt": "https://www2.hm.com/en_in/productpage.1294399002.html"
+    };
 
-    alert(
-        productName +
-        "\n\nProduct details and shopping link will be connected here."
-    );
-
+    if (productLinks[productName]) {
+        window.open(productLinks[productName], "_blank");
+    }
 }
 
 
