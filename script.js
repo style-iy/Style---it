@@ -13,31 +13,35 @@ let styleProfile = {
 };
 
 
-// ----------------------------------------
+// ========================================
 // HOMEPAGE
-// ----------------------------------------
+// ========================================
 
 function startStyleAnalysis() {
     window.location.href = "analysis.html";
 }
 
 
-// ----------------------------------------
+// ========================================
 // EXPLORE FASHION
-// ----------------------------------------
+// ========================================
 
-const exploreButton = document.querySelector(".secondary-button");
+const exploreButton =
+    document.querySelector(".secondary-button");
 
 if (exploreButton) {
 
     exploreButton.addEventListener("click", function () {
 
-        const categories = document.querySelector(".categories");
+        const categories =
+            document.querySelector(".categories");
 
         if (categories) {
+
             categories.scrollIntoView({
                 behavior: "smooth"
             });
+
         }
 
     });
@@ -45,11 +49,12 @@ if (exploreButton) {
 }
 
 
-// ----------------------------------------
+// ========================================
 // CATEGORY CARDS
-// ----------------------------------------
+// ========================================
 
-const categoryCards = document.querySelectorAll(".category-card");
+const categoryCards =
+    document.querySelectorAll(".category-card");
 
 categoryCards.forEach(function (card) {
 
@@ -69,17 +74,21 @@ categoryCards.forEach(function (card) {
 });
 
 
-// ----------------------------------------
+// ========================================
 // SELECT STYLE
-// ----------------------------------------
+// ========================================
 
 function selectStyle(button, styleName) {
 
     const buttons =
-        document.querySelectorAll(".style-options button");
+        document.querySelectorAll(
+            ".style-options button"
+        );
 
     buttons.forEach(function (btn) {
+
         btn.classList.remove("selected");
+
     });
 
     button.classList.add("selected");
@@ -88,9 +97,9 @@ function selectStyle(button, styleName) {
 }
 
 
-// ----------------------------------------
+// ========================================
 // ANALYZE STYLE
-// ----------------------------------------
+// ========================================
 
 function analyzeStyle() {
 
@@ -111,22 +120,41 @@ function analyzeStyle() {
 
 
     if (!gender) {
-        alert("Please select your fashion preference.");
+
+        alert(
+            "Please select your fashion preference."
+        );
+
         return;
     }
+
 
     if (!height) {
-        alert("Please enter your height.");
+
+        alert(
+            "Please enter your height."
+        );
+
         return;
     }
+
 
     if (!styleProfile.style) {
-        alert("Please select a style.");
+
+        alert(
+            "Please select a style."
+        );
+
         return;
     }
 
+
     if (!budget) {
-        alert("Please select your budget.");
+
+        alert(
+            "Please select your budget."
+        );
+
         return;
     }
 
@@ -142,21 +170,19 @@ function analyzeStyle() {
         bodyPhoto ? bodyPhoto.name : null;
 
 
-    // Save information in browser
     localStorage.setItem(
         "styleProfile",
         JSON.stringify(styleProfile)
     );
 
 
-    // Go to results
     window.location.href = "results.html";
 }
 
 
-// ----------------------------------------
+// ========================================
 // RESULTS PAGE
-// ----------------------------------------
+// ========================================
 
 function loadResults() {
 
@@ -188,28 +214,38 @@ function loadResults() {
     if (genderElement) {
 
         if (profile.gender === "men") {
-            genderElement.textContent = "Men's fashion";
+
+            genderElement.textContent =
+                "Men's fashion";
+
+        } else if (profile.gender === "women") {
+
+            genderElement.textContent =
+                "Women's fashion";
+
+        } else {
+
+            genderElement.textContent =
+                "Unisex";
+
         }
 
-        else if (profile.gender === "women") {
-            genderElement.textContent = "Women's fashion";
-        }
-
-        else {
-            genderElement.textContent = "Unisex";
-        }
     }
 
 
     if (heightElement) {
+
         heightElement.textContent =
             profile.height + " cm";
+
     }
 
 
     if (styleElement) {
+
         styleElement.textContent =
             profile.style;
+
     }
 
 
@@ -219,46 +255,216 @@ function loadResults() {
 
             "under500": "Under ₹500",
 
-            "500-1000": "₹500 – ₹1,000",
+            "500-1000":
+                "₹500 – ₹1,000",
 
-            "1000-2000": "₹1,000 – ₹2,000",
+            "1000-2000":
+                "₹1,000 – ₹2,000",
 
-            "2000-5000": "₹2,000 – ₹5,000",
+            "2000-5000":
+                "₹2,000 – ₹5,000",
 
-            "5000+": "₹5,000+"
+            "5000+":
+                "₹5,000+"
 
         };
+
 
         budgetElement.textContent =
             budgetNames[profile.budget] ||
             profile.budget;
+
     }
 
 }
 
 
-// ----------------------------------------
-// BUILD OUTFIT
-// ----------------------------------------
+// ========================================
+// SHOP — FILTER PRODUCTS
+// ========================================
 
-function buildOutfit() {
+function filterProducts(category, button) {
 
-    alert(
-        "Complete My Look is the next feature we will build."
+    const products =
+        document.querySelectorAll(".product-card");
+
+    const filterButtons =
+        document.querySelectorAll(".shop-filters .filter");
+
+
+    // Remove active from all buttons
+
+    filterButtons.forEach(function (btn) {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    // Make clicked button active
+
+    if (button) {
+
+        button.classList.add("active");
+
+    }
+
+
+    // Show / hide products
+
+    products.forEach(function (product) {
+
+        const productCategory =
+            product.dataset.category;
+
+
+        if (
+            category === "all" ||
+            productCategory === category
+        ) {
+
+            product.style.display = "";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+
+    // Clear search when changing category
+
+    const search =
+        document.getElementById("productSearch");
+
+    if (search) {
+
+        search.value = "";
+
+    }
+
+}
+
+
+// ========================================
+// SHOP — SEARCH PRODUCTS
+// ========================================
+
+const productSearch =
+    document.getElementById("productSearch");
+
+
+if (productSearch) {
+
+    productSearch.addEventListener(
+        "input",
+        function () {
+
+            const searchText =
+                productSearch.value
+                .toLowerCase()
+                .trim();
+
+
+            const products =
+                document.querySelectorAll(
+                    ".product-card"
+                );
+
+
+            products.forEach(function (product) {
+
+                const productName =
+                    product.dataset.name
+                    .toLowerCase();
+
+
+                const productCategory =
+                    product.dataset.category
+                    .toLowerCase();
+
+
+                if (
+                    productName.includes(searchText) ||
+                    productCategory.includes(searchText)
+                ) {
+
+                    product.style.display = "";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+
+            // Remove active category
+            // when searching
+
+            if (searchText !== "") {
+
+                document
+                    .querySelectorAll(
+                        ".shop-filters .filter"
+                    )
+                    .forEach(function (btn) {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+            }
+
+        }
     );
 
 }
 
 
-// ----------------------------------------
-// RUN RESULTS FUNCTION
-// ----------------------------------------
+// ========================================
+// SHOP — VIEW PRODUCT
+// ========================================
+
+function viewProduct(productName) {
+
+    alert(
+        productName +
+        "\n\nProduct details and shopping link will be connected here."
+    );
+
+}
+
+
+// ========================================
+// COMPLETE MY LOOK
+// ========================================
+
+function completeMyLook() {
+
+    alert(
+        "Complete My Look is the next major feature we will build."
+    );
+
+}
+
+
+// ========================================
+// RUN RESULTS
+// ========================================
 
 loadResults();
 
 
-// ----------------------------------------
+// ========================================
 // WEBSITE LOADED
-// ----------------------------------------
+// ========================================
 
-console.log("Style-it is running successfully.");
+console.log(
+    "Style-it is running successfully."
+);
