@@ -436,7 +436,8 @@ function viewProduct(productName) {
         "Black Oversized T-Shirt": "https://www2.hm.com/en_in/productpage.1294399002.html",
         "Black Bootcut Jeans": "https://www.myntra.com/jeans/highlander/highlander-men-bootcut-jeans/30473895/buy",
         "White & Grey Casual Sneakers": "https://www.myntra.com/casual-shoes/roadster/roadster-men-white--grey-synthetic-casual-sneakers/36193620/buy",
-        "Roadster Black Analogue Watch": "https://www.myntra.com/watches/roadster/roadster-men-textured-straps-analogue-watch-ut-a8667blk1/31348428/buy"
+        "Roadster Black Analogue Watch": "https://www.myntra.com/watches/roadster/roadster-men-textured-straps-analogue-watch-ut-a8667blk1/31348428/buy",
+        "Elligator Black Square Sunglasses": "https://www.myntra.com/sunglasses/elligator/elligator-men-black-lens--black-square-sunglasses-with/38768987/buy"
     };
 
     if (productLinks[productName]) {
