@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style-it | Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+    <div class="logo">STYLE-IT</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="analysis.html">Style AI</a>
+        <a href="profile.html">Profile</a>
+    </nav>
+</header>
+
+<main class="results-page">
+
+    <section class="analysis-header">
+        <p class="tagline">YOUR STYLE PROFILE</p>
+        <h1>Welcome to your <span>profile.</span></h1>
+        <p>
+            Your Style-it preferences and fashion information are shown here.
+        </p>
+    </section>
+
+    <section class="results-grid">
+
+        <div class="result-card">
+            <span class="result-icon">👤</span>
+            <h2>Fashion Preference</h2>
+            <p id="profileGender">Not set</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-icon">📏</span>
+            <h2>Height</h2>
+            <p id="profileHeight">Not set</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-icon">🎨</span>
+            <h2>Preferred Style</h2>
+            <p id="profileStyle">Not set</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-icon">💰</span>
+            <h2>Fashion Budget</h2>
+            <p id="profileBudget">Not set</p>
+        </div>
+
+    </section>
+
+    <section class="outfit-section">
+        <h2>Ready to discover your style?</h2>
+        <p>
+            Update your style information and get personalized recommendations.
+        </p>
+
+        <button onclick="window.location.href='analysis.html'">
+            ✨ Update Style Profile
+        </button>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Style-it</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+function loadProfile() {
+
+    const savedProfile =
+        localStorage.getItem("styleProfile");
+
+    if (!savedProfile) {
+        return;
+    }
+
+    const profile =
+        JSON.parse(savedProfile);
+
+    const genderElement =
+        document.getElementById("profileGender");
+
+    const heightElement =
+        document.getElementById("profileHeight");
+
+    const styleElement =
+        document.getElementById("profileStyle");
+
+    const budgetElement =
+        document.getElementById("profileBudget");
+
+
+    if (genderElement) {
+
+        if (profile.gender === "men") {
+            genderElement.textContent =
+                "Men's fashion";
+
+        } else if (profile.gender === "women") {
+            genderElement.textContent =
+                "Women's fashion";
+
+        } else {
+            genderElement.textContent =
+                "Unisex";
+        }
+    }
+
+
+    if (heightElement) {
+
+        heightElement.textContent =
+            profile.height
+            ? profile.height + " cm"
+            : "Not set";
+    }
+
+
+    if (styleElement) {
+
+        styleElement.textContent =
+            profile.style || "Not set";
+    }
+
+
+    if (budgetElement) {
+
+        const budgetNames = {
+
+            "under500": "Under ₹500",
+
+            "500-1000": "₹500 – ₹1,000",
+
+            "1000-2000": "₹1,000 – ₹2,000",
+
+            "2000-5000": "₹2,000 – ₹5,000",
+
+            "5000+": "₹5,000+"
+        };
+
+        budgetElement.textContent =
+            budgetNames[profile.budget]
+            || "Not set";
+    }
+}
+
+loadProfile();
+</script>
+
+</body>
+</html>
