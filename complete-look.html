@@ -3,214 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Style-it | Complete My Look</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
+
     <div class="logo">STYLE-IT</div>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="analysis.html">Style AI</a>
-        <a href="profile.html">Profile</a>
+        <a href="#">Profile</a>
     </nav>
+
 </header>
 
-<main class="shop-page">
 
-    <section class="shop-header">
+<main class="complete-look-page">
+
+    <section class="analysis-header">
+
         <p class="tagline">STYLE-IT AI</p>
 
-        <h1>Complete your <span>look.</span></h1>
+        <h1>
+            Complete your
+            <span>look.</span>
+        </h1>
 
         <p>
-            Choose one item you already own and Style-it will suggest
-            the pieces that complete the outfit.
+            Choose one item you already own and Style-it
+            will suggest the pieces that complete your outfit.
         </p>
+
     </section>
 
-    <section class="complete-look-form">
+
+    <section class="look-selector">
 
         <h2>What do you already have?</h2>
 
-        <p class="form-description">
+        <p>
             Select an item and we'll build an outfit around it.
         </p>
 
+
         <div class="look-options">
 
-            <button type="button"
-                onclick="chooseLookItem('Black Bootcut Jeans')">
+            <button onclick="chooseLook('Black Bootcut Jeans')">
                 👖 Black Bootcut Jeans
             </button>
 
-            <button type="button"
-                onclick="chooseLookItem('Black Oversized T-Shirt')">
+            <button onclick="chooseLook('Black Oversized T-Shirt')">
                 👕 Black Oversized T-Shirt
             </button>
 
-            <button type="button"
-                onclick="chooseLookItem('White Relaxed Fit T-Shirt')">
+            <button onclick="chooseLook('White Relaxed Fit T-Shirt')">
                 👕 White Relaxed Fit T-Shirt
             </button>
 
-            <button type="button"
-                onclick="chooseLookItem('White & Grey Casual Sneakers')">
+            <button onclick="chooseLook('White & Grey Sneakers')">
                 👟 White & Grey Sneakers
             </button>
 
         </div>
 
-        <div id="selectedLook" class="selected-look">
-            <p>Choose an item above to continue.</p>
-        </div>
+
+        <p id="lookMessage">
+            Choose an item above to continue.
+        </p>
+
+    </section>
+
+
+    <section id="outfitResult" class="outfit-result">
 
     </section>
 
 </main>
 
+
 <footer>
+
     <p>© 2026 Style-it</p>
+
 </footer>
+
 
 <script src="script.js"></script>
 
-<script>
-
-function chooseLookItem(itemName) {
-
-    const selected =
-        document.getElementById("selectedLook");
-
-    selected.innerHTML = `
-        <p class="tagline">YOUR STARTING ITEM</p>
-
-        <h2>${itemName}</h2>
-
-        <p>
-            Great choice. Style-it can build the rest of
-            your outfit around this item.
-        </p>
-
-        <button onclick="generateLook('${itemName}')">
-            ✨ Build My Look
-        </button>
-    `;
-}
-
-
-function generateLook(itemName) {
-
-    const selected =
-        document.getElementById("selectedLook");
-
-    let outfit = "";
-
-    if (itemName === "Black Bootcut Jeans") {
-
-        outfit = `
-            <h2>🔥 Recommended Look</h2>
-
-            <div class="look-result">
-
-                <p>👖 <strong>Black Bootcut Jeans</strong></p>
-
-                <p>👕 White Relaxed Fit T-Shirt</p>
-
-                <p>👟 White & Grey Casual Sneakers</p>
-
-                <p>🕶️ Black Square Sunglasses</p>
-
-                <p>⌚ Black Analogue Watch</p>
-
-            </div>
-
-            <button onclick="window.location.href='shop.html'">
-                🛍️ Shop The Look
-            </button>
-        `;
-
-    } else if (itemName === "Black Oversized T-Shirt") {
-
-        outfit = `
-            <h2>🔥 Recommended Look</h2>
-
-            <div class="look-result">
-
-                <p>👕 <strong>Black Oversized T-Shirt</strong></p>
-
-                <p>👖 Black Bootcut Jeans</p>
-
-                <p>👟 White & Grey Casual Sneakers</p>
-
-                <p>🕶️ Black Square Sunglasses</p>
-
-                <p>⌚ Black Analogue Watch</p>
-
-            </div>
-
-            <button onclick="window.location.href='shop.html'">
-                🛍️ Shop The Look
-            </button>
-        `;
-
-    } else if (itemName === "White Relaxed Fit T-Shirt") {
-
-        outfit = `
-            <h2>🔥 Recommended Look</h2>
-
-            <div class="look-result">
-
-                <p>👕 <strong>White Relaxed Fit T-Shirt</strong></p>
-
-                <p>👖 Black Bootcut Jeans</p>
-
-                <p>👟 White & Grey Casual Sneakers</p>
-
-                <p>🕶️ Black Square Sunglasses</p>
-
-                <p>⌚ Black Analogue Watch</p>
-
-            </div>
-
-            <button onclick="window.location.href='shop.html'">
-                🛍️ Shop The Look
-            </button>
-        `;
-
-    } else {
-
-        outfit = `
-            <h2>🔥 Recommended Look</h2>
-
-            <div class="look-result">
-
-                <p>👟 <strong>White & Grey Sneakers</strong></p>
-
-                <p>👕 Black Oversized T-Shirt</p>
-
-                <p>👖 Black Bootcut Jeans</p>
-
-                <p>🕶️ Black Square Sunglasses</p>
-
-                <p>⌚ Black Analogue Watch</p>
-
-            </div>
-
-            <button onclick="window.location.href='shop.html'">
-                🛍️ Shop The Look
-            </button>
-        `;
-    }
-
-    selected.innerHTML = outfit;
-}
-
-</script>
-
 </body>
-  </html>
+</html>
