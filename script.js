@@ -474,3 +474,172 @@ loadResults();
 console.log(
     "Style-it is running successfully."
 );
+// COMPLETE MY LOOK
+function chooseLook(item) {
+
+    const result = document.getElementById("outfitResult");
+    const message = document.getElementById("lookMessage");
+
+    let outfit = "";
+
+    if (item === "Black Bootcut Jeans") {
+
+        outfit = `
+            <h2>✨ Your Complete Outfit</h2>
+            <p>Built around <strong>Black Bootcut Jeans</strong></p>
+
+            <div class="outfit-items">
+
+                <div class="outfit-item">
+                    <span>👕</span>
+                    <h3>Black Oversized T-Shirt</h3>
+                    <p>Streetwear • Relaxed fit</p>
+                    <a href="https://www2.hm.com/en_in/productpage.1294399002.html" target="_blank">
+                        Shop T-Shirt
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>👟</span>
+                    <h3>White & Grey Sneakers</h3>
+                    <p>Clean • Casual • Versatile</p>
+                    <a href="https://www.myntra.com/casual-shoes/roadster/roadster-men-white--grey-synthetic-casual-sneakers/36193620/buy" target="_blank">
+                        Shop Sneakers
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>🕶️</span>
+                    <h3>Black Square Sunglasses</h3>
+                    <p>Bold • Streetwear</p>
+                    <a href="https://www.myntra.com/sunglasses/elligator/elligator-men-black-lens--black-square-sunglasses-with/38768987/buy" target="_blank">
+                        Shop Sunglasses
+                    </a>
+                </div>
+
+            </div>
+        `;
+
+    } else if (item === "Black Oversized T-Shirt") {
+
+        outfit = `
+            <h2>✨ Your Complete Outfit</h2>
+            <p>Built around <strong>Black Oversized T-Shirt</strong></p>
+
+            <div class="outfit-items">
+
+                <div class="outfit-item">
+                    <span>👖</span>
+                    <h3>Black Bootcut Jeans</h3>
+                    <p>Streetwear • Bootcut</p>
+                    <a href="https://www.myntra.com/jeans/highlander/highlander-men-bootcut-jeans/30473895/buy" target="_blank">
+                        Shop Jeans
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>👟</span>
+                    <h3>White & Grey Sneakers</h3>
+                    <p>Clean • Casual</p>
+                    <a href="https://www.myntra.com/casual-shoes/roadster/roadster-men-white--grey-synthetic-casual-sneakers/36193620/buy" target="_blank">
+                        Shop Sneakers
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>🕶️</span>
+                    <h3>Black Square Sunglasses</h3>
+                    <p>Bold • Streetwear</p>
+                    <a href="https://www.myntra.com/sunglasses/elligator/elligator-men-black-lens--black-square-sunglasses-with/38768987/buy" target="_blank">
+                        Shop Sunglasses
+                    </a>
+                </div>
+
+            </div>
+        `;
+
+    } else if (item === "White Relaxed Fit T-Shirt") {
+
+        outfit = `
+            <h2>✨ Your Complete Outfit</h2>
+            <p>Built around <strong>White Relaxed Fit T-Shirt</strong></p>
+
+            <div class="outfit-items">
+
+                <div class="outfit-item">
+                    <span>👖</span>
+                    <h3>Black Bootcut Jeans</h3>
+                    <p>Clean contrast • Streetwear</p>
+                    <a href="https://www.myntra.com/jeans/highlander/highlander-men-bootcut-jeans/30473895/buy" target="_blank">
+                        Shop Jeans
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>👟</span>
+                    <h3>White & Grey Sneakers</h3>
+                    <p>Minimal • Clean</p>
+                    <a href="https://www.myntra.com/casual-shoes/roadster/roadster-men-white--grey-synthetic-casual-sneakers/36193620/buy" target="_blank">
+                        Shop Sneakers
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>🕶️</span>
+                    <h3>Black Square Sunglasses</h3>
+                    <p>Bold finishing touch</p>
+                    <a href="https://www.myntra.com/sunglasses/elligator/elligator-men-black-lens--black-square-sunglasses-with/38768987/buy" target="_blank">
+                        Shop Sunglasses
+                    </a>
+                </div>
+
+            </div>
+        `;
+
+    } else if (item === "White & Grey Sneakers") {
+
+        outfit = `
+            <h2>✨ Your Complete Outfit</h2>
+            <p>Built around <strong>White & Grey Sneakers</strong></p>
+
+            <div class="outfit-items">
+
+                <div class="outfit-item">
+                    <span>👕</span>
+                    <h3>Black Oversized T-Shirt</h3>
+                    <p>Streetwear • Relaxed fit</p>
+                    <a href="https://www2.hm.com/en_in/productpage.1294399002.html" target="_blank">
+                        Shop T-Shirt
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>👖</span>
+                    <h3>Black Bootcut Jeans</h3>
+                    <p>Streetwear • Bootcut</p>
+                    <a href="https://www.myntra.com/jeans/highlander/highlander-men-bootcut-jeans/30473895/buy" target="_blank">
+                        Shop Jeans
+                    </a>
+                </div>
+
+                <div class="outfit-item">
+                    <span>🕶️</span>
+                    <h3>Black Square Sunglasses</h3>
+                    <p>Bold • Streetwear</p>
+                    <a href="https://www.myntra.com/sunglasses/elligator/elligator-men-black-lens--black-square-sunglasses-with/38768987/buy" target="_blank">
+                        Shop Sunglasses
+                    </a>
+                </div>
+
+            </div>
+        `;
+    }
+
+    result.innerHTML = outfit;
+
+    message.textContent = "Your outfit is ready! 👇";
+
+    result.scrollIntoView({
+        behavior: "smooth"
+    });
+}
